@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Media Interaktif IPA Kelas X Semester 2</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--bg:#eef3f6;--panel:#fff;--ink:#12263f;--mut:#55677d;--line:#cfdae3;--acc:#0e7c86;--acc2:#f2a900;--ok:#1b7f4b;--bad:#c2384f;--soft:#e0eef0;--hd:#12263f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a29;--panel:#15263a;--ink:#e6eef7;--mut:#9fb2c6;--line:#2a3f57;--acc:#4cc3cc;--acc2:#f5b82e;--ok:#55c585;--bad:#ef7d90;--soft:#17323f;--hd:#0a1422;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1a29;--panel:#15263a;--ink:#e6eef7;--mut:#9fb2c6;--line:#2a3f57;--acc:#4cc3cc;--acc2:#f5b82e;--ok:#55c585;--bad:#ef7d90;--soft:#17323f;--hd:#0a1422;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 16px/1.6 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.15;margin:0}
+header{background:var(--hd);color:#fff;padding:22px 20px 18px;border-bottom:4px solid var(--acc2)}
+header h1{font-size:clamp(1.5rem,4.5vw,2.3rem);font-weight:800}
+header p{margin:6px 0 0;color:#c5d3e2}
+.score{margin-top:12px;display:inline-block;font-weight:600;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:99px}
+.wrap{display:grid;grid-template-columns:230px 1fr;gap:20px;max-width:1040px;margin:0 auto;padding:20px}
+nav{display:flex;flex-direction:column;gap:6px}
+nav button{text-align:left;font:600 .98rem "Source Sans 3",sans-serif;color:var(--ink);background:transparent;border:0;border-left:4px solid var(--line);padding:10px 12px;cursor:pointer}
+nav button[aria-current="true"]{border-left-color:var(--acc2);background:var(--panel);color:var(--ink)}
+nav small{display:block;font-weight:400;color:var(--mut)}
+main{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px;min-width:0}
+main h2{font-size:1.7rem;font-weight:800}
+.sum{color:var(--mut);margin:6px 0 16px;max-width:68ch}
+.lab{background:var(--soft);border-radius:10px;padding:16px;margin:14px 0}
+.lab h3{font-size:1.05rem;margin-bottom:10px}
+button,select,input{font:inherit;color:var(--ink)}
+.b{background:var(--panel);border:1.5px solid var(--acc);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer;font-weight:600}
+.b:hover{background:var(--acc);color:#fff}
+.b[aria-pressed="true"]{background:var(--acc);color:#fff}
+.b:disabled{opacity:.4;cursor:default}
+:focus-visible{outline:3px solid var(--acc2);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.atom{display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:16px;align-items:center}
+.atom svg{width:100%;height:auto}
+.ctl{display:flex;align-items:center;gap:8px;margin:4px 0}
+.ctl span{width:92px}.ctl output{min-width:26px;text-align:center;font-weight:700}
+dl{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;margin:10px 0 0}dt{color:var(--mut)}dd{margin:0;font-weight:600}
+.tag{display:inline-block;padding:2px 10px;border-radius:99px;background:var(--acc);color:#fff;font-weight:600;font-size:.9rem}
+.res{font-size:1.05rem}.res b{color:var(--acc)}
+input[type=number],select{background:var(--panel);border:1.5px solid var(--line);border-radius:8px;padding:6px 10px}
+.msg{margin-top:10px;min-height:3em}
+.up{color:var(--ok);font-weight:600}.dn{color:var(--bad);font-weight:600}
+.lv{margin:6px 0}.lv>i{display:block;color:var(--mut);font-style:normal;font-size:.9rem}
+.step{border-left:5px solid var(--acc2);padding:4px 14px;margin-top:10px}
+.q{border-top:1px solid var(--line);padding:14px 0}
+.q p{margin:0 0 8px;font-weight:600}
+.o{display:block;width:100%;text-align:left;background:var(--panel);border:1.5px solid var(--line);border-radius:8px;padding:8px 12px;margin:6px 0;cursor:pointer}
+.o:hover:not(:disabled){border-color:var(--acc)}
+.o.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--panel))}
+.o.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,var(--panel))}
+.ex{color:var(--mut);margin:6px 0 0;font-size:.95rem}
+.cl{padding:8px 0;border-bottom:1px solid var(--line)}
+@media (max-width:760px){.wrap{grid-template-columns:1fr;padding:12px}nav{flex-direction:row;overflow-x:auto;padding-bottom:4px}nav button{white-space:nowrap;border-left:0;border-bottom:4px solid var(--line)}nav button[aria-current="true"]{border-bottom-color:var(--acc2)}nav small{display:none}.atom{grid-template-columns:1fr}main{padding:16px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+<h1>Media Interaktif IPA</h1>
+<p>Fase E, Kelas X, Semester Genap: coba, amati, lalu jawab kuis di setiap topik.</p>
+<span class="score" id="score" aria-live="polite">Skor kuis: 0 dari 12</span>
+</header>
+<div class="wrap"><nav id="nav" aria-label="Topik"></nav><main id="main"></main></div>
+<script>
+const $=(s,r=document)=>r.querySelector(s);
+const E=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+const sup=n=>n.toString().replace('.',',');
+
+/* ---------- widget 1: model atom ---------- */
+function atom(el){
+  const S='H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca'.split(' '),lim={p:[1,20],n:[0,25],e:[0,22]},s={p:6,n:6,e:6};
+  const names={p:'Proton',n:'Neutron',e:'Elektron'};
+  el.innerHTML='<div class="atom"><div id="sv"></div><div><div id="ct"></div><dl id="in"></dl></div></div><p class="msg" id="tip"></p>';
+  $('#ct',el).innerHTML=['p','n','e'].map(k=>`<div class="ctl"><span>${names[k]}</span><button class="b" data-k="${k}" data-d="-1" aria-label="Kurangi ${names[k]}">−</button><output id="v${k}"></output><button class="b" data-k="${k}" data-d="1" aria-label="Tambah ${names[k]}">+</button></div>`).join('');
+  const draw=()=>{
+    const {p,n,e}=s,q=p-e;let left=e;const sh=[2,8,8,4].map(c=>{const k=Math.min(c,left);left-=k;return k});
+    let v='<svg viewBox="-110 -110 220 220" role="img" aria-label="Model atom">';
+    [34,56,78,100].forEach((r,i)=>{if(sh[i]){v+=`<circle r="${r}" fill="none" stroke="var(--line)" stroke-width="1.5"/>`;for(let k=0;k<sh[i];k++){const a=2*Math.PI*k/sh[i]-Math.PI/2;v+=`<circle cx="${(r*Math.cos(a)).toFixed(1)}" cy="${(r*Math.sin(a)).toFixed(1)}" r="5" fill="var(--acc)"/>`}}});
+    v+=`<circle r="22" fill="var(--acc2)"/><text y="6" text-anchor="middle" font-size="18" font-weight="700" fill="#12263f">${S[p-1]}</text></svg>`;
+    $('#sv',el).innerHTML=v;
+    ['p','n','e'].forEach(k=>$('#v'+k,el).textContent=s[k]);
+    const kind=q===0?'Atom netral':q>0?`Ion positif (kation), muatan +${q}`:`Ion negatif (anion), muatan ${q}`;
+    $('#in',el).innerHTML=`<dt>Nomor atom (Z)</dt><dd>${p}</dd><dt>Nomor massa (A)</dt><dd>${p+n}</dd><dt>Notasi</dt><dd><sup>${p+n}</sup><sub>${p}</sub>${S[p-1]}</dd><dt>Jenis</dt><dd>${kind}</dd><dt>Elektron per kulit</dt><dd>${sh.filter(x=>x).join(', ')||'-'}</dd>`;
+    $('#tip',el).textContent='Coba: ubah neutron saja untuk membuat isotop (proton sama, neutron berbeda). Ubah elektron saja untuk membuat ion.';
+  };
+  el.addEventListener('click',ev=>{const b=ev.target.closest('[data-k]');if(!b)return;const k=b.dataset.k;s[k]=Math.max(lim[k][0],Math.min(lim[k][1],s[k]+ +b.dataset.d));draw()});
+  draw();
+}
+
+/* ---------- widget 2: kalkulator mol ---------- */
+function mol(el){
+  const M=[['Air (H₂O)',18,0],['Karbon dioksida (CO₂)',44,1],['Metana (CH₄)',16,1],['Oksigen (O₂)',32,1],['Natrium klorida (NaCl)',58.5,0],['Glukosa (C₆H₁₂O₆)',180,0]];
+  el.innerHTML=`<div class="row"><label>Zat <select id="z">${M.map((m,i)=>`<option value="${i}">${m[0]}</option>`).join('')}</select></label><label>Massa (g) <input id="m" type="number" min="0" step="any" value="36" style="width:100px"></label></div><p class="res" id="r"></p><p class="ex">Ar yang dipakai: H = 1, C = 12, O = 16, Na = 23, Cl = 35,5. Volume molar gas pada STP = 22,4 L/mol.</p>`;
+  const f=()=>{const z=M[$('#z',el).value],g=parseFloat($('#m',el).value)||0,n=g/z[1];
+    $('#r',el).innerHTML=`Mr = <b>${sup(z[1])}</b><br>Jumlah mol = ${g} ÷ ${sup(z[1])} = <b>${sup(+n.toFixed(3))} mol</b><br>Jumlah partikel = <b>${sup((n*6.022).toFixed(3))} × 10²³</b><br>Volume pada STP = ${z[2]?`<b>${sup((n*22.4).toFixed(2))} L</b>`:'tidak dihitung (bukan gas pada STP)'}`};
+  el.addEventListener('input',f);f();
+}
+
+/* ---------- widget 3: jaring makanan ---------- */
+function web(el){
+  const L=[['Produsen',['Padi']],['Konsumen tingkat I',['Belalang','Tikus']],['Konsumen tingkat II',['Katak']],['Konsumen tingkat III',['Ular','Elang']]];
+  const G=[['Padi','Belalang'],['Padi','Tikus'],['Belalang','Katak'],['Katak','Ular'],['Tikus','Ular'],['Tikus','Elang'],['Ular','Elang']];
+  let x=null;
+  el.innerHTML='<p class="ex" style="margin-top:0">Panah berarti “dimakan oleh”. Pilih satu organisme untuk dihilangkan dari ekosistem.</p><div id="l"></div><div class="msg" id="o" aria-live="polite"></div>';
+  const draw=()=>{
+    $('#l',el).innerHTML=L.map(([t,a])=>`<div class="lv"><i>${t}</i><div class="row">${a.map(n=>`<button class="b" aria-pressed="${n===x}" data-n="${n}">${n}${n===x?' (hilang)':''}</button>`).join('')}</div></div>`).join('');
+    const eats=n=>G.filter(g=>g[1]===n).map(g=>g[0]),eaten=n=>G.filter(g=>g[0]===n).map(g=>g[1]);
+    let m='Semua organisme masih ada, rantai energi utuh.';
+    if(x){const lost=eaten(x),free=eats(x);
+      m=`<span class="dn">Kehilangan sumber makanan (cenderung turun):</span> ${lost.join(', ')||'tidak ada'}<br><span class="up">Kehilangan pemangsa (cenderung naik):</span> ${free.join(', ')||'tidak ada'}<br>${x==='Padi'?'Tanpa produsen, energi tidak masuk ke ekosistem sehingga semua konsumen akhirnya terdampak.':'Perubahan satu populasi dapat merambat ke organisme lain sehingga keseimbangan ekosistem terganggu.'}`}
+    $('#o',el).innerHTML=m};
+  el.addEventListener('click',ev=>{const b=ev.target.closest('[data-n]');if(!b)return;x=x===b.dataset.n?null:b.dataset.n;draw()});draw();
+}
+
+/* ---------- widget 4: energi alternatif ---------- */
+function energi(el){
+  const S=[['Surya','Cahaya matahari → energi listrik (sel surya)','Tanpa emisi saat beroperasi dan melimpah di daerah tropis.','Bergantung cuaca dan siang hari; butuh baterai untuk menyimpan.'],
+  ['Angin','Energi kinetik angin → energi kinetik turbin → energi listrik','Bersih dan tidak memakai bahan bakar.','Perlu lokasi dengan angin cukup kuat dan stabil.'],
+  ['Air','Energi potensial air → energi kinetik → energi listrik','Pasokan stabil dan bisa berskala kecil (mikrohidro).','Bendungan besar dapat mengubah ekosistem sungai.'],
+  ['Biomassa dan biogas','Energi kimia limbah organik → kalor → listrik atau api memasak','Mengolah limbah menjadi energi dan pupuk.','Perlu pasokan limbah rutin dan pengelolaan gas yang aman.'],
+  ['Panas bumi','Kalor dari dalam bumi → uap → energi listrik','Stabil siang dan malam.','Terbatas di daerah vulkanik; biaya awal tinggi.']];
+  el.innerHTML=`<div class="row" id="b">${S.map((s,i)=>`<button class="b" data-i="${i}" aria-pressed="false">${s[0]}</button>`).join('')}</div><div class="msg" id="o">Pilih satu sumber energi untuk melihat perubahan energinya.</div>`;
+  el.addEventListener('click',ev=>{const b=ev.target.closest('[data-i]');if(!b)return;const s=S[b.dataset.i];
+    el.querySelectorAll('[data-i]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    $('#o',el).innerHTML=`<div class="step"><b>Perubahan energi:</b> ${s[1]}<br><span class="up">Kelebihan:</span> ${s[2]}<br><span class="dn">Keterbatasan:</span> ${s[3]}</div>`});
+}
+
+/* ---------- widget 5: biogas ---------- */
+function biogas(el){
+  const T=[['Hidrolisis','Polimer organik (karbohidrat, protein, lemak) diurai menjadi monomer: gula, asam amino, dan asam lemak.','Bakteri hidrolitik'],
+  ['Asidogenesis','Monomer diubah menjadi asam lemak volatil, alkohol, H₂, dan CO₂.','Bakteri asidogenik'],
+  ['Asetogenesis','Asam dan alkohol diubah menjadi asetat, H₂, dan CO₂.','Bakteri asetogenik'],
+  ['Metanogenesis','CH₃COOH → CH₄ + CO₂ dan CO₂ + 4H₂ → CH₄ + 2H₂O. Tahap ini membentuk metana.','Arkea metanogen, kondisi anaerob'],
+  ['Pembakaran biogas','CH₄ + 2O₂ → CO₂ + 2H₂O + kalor. Reaksi ini melepas kalor (eksoterm).','Tanpa mikroorganisme']];
+  let i=0;
+  el.innerHTML='<div class="row"><button class="b" id="p">Sebelumnya</button><button class="b" id="n">Berikutnya</button><span id="c" class="ex"></span></div><div id="s" class="step" aria-live="polite"></div>';
+  const d=()=>{const t=T[i];$('#s',el).innerHTML=`<h3>${t[0]}</h3><p>${t[1]}</p><p class="ex">Pelaku: ${t[2]}</p>`;$('#c',el).textContent=`Tahap ${i+1} dari ${T.length}`;$('#p',el).disabled=!i;$('#n',el).disabled=i===T.length-1};
+  $('#p',el).onclick=()=>{i--;d()};$('#n',el).onclick=()=>{i++;d()};d();
+}
+
+/* ---------- widget 6: mitigasi atau adaptasi ---------- */
+function iklim(el){
+  const A=[['Memasang panel surya di atap sekolah','Mitigasi','mengurangi emisi gas rumah kaca'],['Membuat sumur resapan dan lubang biopori','Adaptasi','menyesuaikan diri dengan risiko banjir dan kekeringan'],['Mengolah sampah organik menjadi biogas','Mitigasi','mengurangi pelepasan metana ke atmosfer'],['Membangun tanggul untuk menahan air laut pasang','Adaptasi','melindungi permukiman dari dampak kenaikan muka air laut'],['Menghemat listrik dan beralih ke transportasi umum','Mitigasi','mengurangi pembakaran bahan bakar fosil'],['Memasang sistem peringatan dini banjir','Adaptasi','mengurangi kerugian akibat dampak yang sudah terjadi'],['Menanam varietas padi tahan kekeringan','Adaptasi','menjaga produksi pangan saat iklim berubah']];
+  el.innerHTML='<p class="ex" style="margin-top:0">Mitigasi mengurangi penyebab perubahan iklim; adaptasi menyesuaikan diri dengan dampaknya. Klasifikasikan tiap aksi.</p>'+A.map((a,i)=>`<div class="cl"><div>${a[0]}</div><div class="row" style="margin-top:6px"><button class="b" data-i="${i}" data-v="Mitigasi">Mitigasi</button><button class="b" data-i="${i}" data-v="Adaptasi">Adaptasi</button></div><div class="ex" id="f${i}"></div></div>`).join('')+'<p class="msg" id="t"></p>';
+  const done={};
+  el.addEventListener('click',ev=>{const b=ev.target.closest('[data-v]');if(!b)return;const i=b.dataset.i,a=A[i],ok=b.dataset.v===a[1];
+    $('#f'+i,el).innerHTML=ok?`<span class="up">Tepat.</span> ${a[1]}: ${a[2]}.`:`<span class="dn">Belum tepat.</span> Pikirkan: apakah aksi ini ${a[1]==='Mitigasi'?'mengurangi penyebab':'menyesuaikan diri dengan dampak'}?`;
+    if(ok)done[i]=1;$('#t',el).textContent=`Terklasifikasi dengan benar: ${Object.keys(done).length} dari ${A.length}`});
+}
+
+/* ---------- data topik dan kuis ---------- */
+const T=[
+ {t:'Partikel Penyusun Materi',s:'Atom tersusun dari proton, neutron, dan elektron. Susun atomnya sendiri dan lihat bagaimana nomor atom, nomor massa, dan muatan berubah.',w:atom,
+  q:[['Atom klorin memiliki 17 proton, 18 neutron, dan 17 elektron. Berapa nomor massanya?',['17','18','35','52'],2,'Nomor massa = proton + neutron = 17 + 18 = 35.'],
+     ['Partikel dengan 11 proton dan 10 elektron bermuatan…',['−1','0','+1','+10'],2,'Muatan = proton − elektron = 11 − 10 = +1 (ion positif).']]},
+ {t:'Stoikiometri',s:'Mol menghubungkan massa, jumlah partikel, dan volume gas. Ubah zat dan massanya, lalu amati hasil perhitungannya.',w:mol,
+  q:[['Berapa mol dalam 36 g air (Mr = 18)?',['0,5 mol','1 mol','2 mol','18 mol'],2,'mol = massa ÷ Mr = 36 ÷ 18 = 2 mol.'],
+     ['Volume 2 mol gas pada STP adalah…',['22,4 L','44,8 L','11,2 L','2 L'],1,'Volume = mol × 22,4 L/mol = 44,8 L.']]},
+ {t:'Ekosistem',s:'Komponen ekosistem saling terhubung lewat jaring makanan. Hilangkan satu organisme dan perhatikan siapa yang terdampak.',w:web,
+  q:[['Sumber energi utama yang masuk ke ekosistem berasal dari…',['Produsen','Matahari','Pengurai','Konsumen puncak'],1,'Produsen mengubah energi cahaya matahari menjadi energi kimia lewat fotosintesis.'],
+     ['Hubungan yang menguntungkan kedua pihak disebut…',['Parasitisme','Predasi','Kompetisi','Mutualisme'],3,'Pada mutualisme, kedua organisme sama-sama mendapat keuntungan.']]},
+ {t:'Energi Alternatif',s:'Setiap sumber energi terbarukan mengubah bentuk energi dengan cara berbeda. Bandingkan perubahan energi, kelebihan, dan keterbatasannya.',w:energi,
+  q:[['Perubahan energi pada sel surya adalah…',['Kimia → listrik','Cahaya → listrik','Kinetik → listrik','Kalor → kinetik'],1,'Sel surya mengubah energi cahaya langsung menjadi energi listrik.'],
+     ['Sumber energi yang berasal dari sisa makhluk hidup dan limbah organik adalah…',['Biomassa','Angin','Panas bumi','Surya'],0,'Biomassa dan biogas berasal dari bahan organik.']]},
+ {t:'Biogas dan Bioteknologi',s:'Limbah organik dapat diubah menjadi biogas melalui kerja mikroorganisme. Telusuri tahapan reaksinya satu per satu.',w:biogas,
+  q:[['Tahap yang menghasilkan metana (CH₄) adalah…',['Hidrolisis','Asidogenesis','Asetogenesis','Metanogenesis'],3,'Arkea metanogen membentuk CH₄ pada tahap metanogenesis.'],
+     ['Pembentukan biogas di digester berlangsung dalam kondisi…',['Aerob','Anaerob','Berudara bebas','Bertekanan sangat tinggi'],1,'Mikroorganisme pembentuk metana bekerja tanpa oksigen (anaerob).']]},
+ {t:'Perubahan Iklim',s:'Perubahan iklim ditangani lewat dua jalur: mitigasi dan adaptasi. Uji pemahamanmu dengan mengklasifikasikan aksi nyata.',w:iklim,
+  q:[['Gas rumah kaca utama dari pembakaran bahan bakar fosil adalah…',['Oksigen','Nitrogen','Karbon dioksida','Argon'],2,'Pembakaran bahan bakar fosil melepas CO₂ dalam jumlah besar.'],
+     ['Membuat sistem peringatan dini banjir termasuk…',['Mitigasi','Adaptasi','Fotosintesis','Eksoterm'],1,'Aksi ini menyesuaikan diri dengan dampak, sehingga tergolong adaptasi.']]}
+];
+const sc={};
+function quiz(box,ti){
+  T[ti].q.forEach((q,qi)=>{
+    const d=E('div','q',`<p>${qi+1}. ${q[0]}</p>`);
+    const ex=E('p','ex');ex.setAttribute('aria-live','polite');
+    q[1].forEach((o,oi)=>{const b=E('button','o',o);b.onclick=()=>{
+      d.querySelectorAll('.o').forEach((x,j)=>{x.disabled=true;if(j===q[2])x.classList.add('ok')});
+      if(oi!==q[2])b.classList.add('no');
+      ex.textContent=(oi===q[2]?'Benar. ':'Belum tepat. ')+q[3];
+      if(sc[ti+'-'+qi]===undefined){sc[ti+'-'+qi]=oi===q[2]?1:0;
+        $('#score').textContent='Skor kuis: '+Object.values(sc).reduce((a,b)=>a+b,0)+' dari 12'}};d.appendChild(b)});
+    d.appendChild(ex);box.appendChild(d)});
+}
+function show(i){
+  $('#nav').querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-current',j===i));
+  const m=$('#main');m.innerHTML=`<h2>${T[i].t}</h2><p class="sum">${T[i].s}</p>`;
+  const lab=E('div','lab');lab.appendChild(E('h3',null,'Eksplorasi'));const w=E('div');lab.appendChild(w);m.appendChild(lab);
+  T[i].w(w);m.appendChild(E('h3',null,'Cek pemahaman'));const qb=E('div');m.appendChild(qb);quiz(qb,i);
+  m.scrollIntoView({block:'start'});
+}
+$('#nav').innerHTML=T.map((t,i)=>`<button data-i="${i}">${t.t}<small>Topik ${i+1} dari 6</small></button>`).join('');
+$('#nav').addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(b)show(+b.dataset.i)});
+show(0);window.scrollTo(0,0);
+</script>
+</body>
+</html>
